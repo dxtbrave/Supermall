@@ -1,3 +1,6 @@
+本人的第一份Vue项目，经过十天的锻炼，已经明白了Vue组件化开发的思想，现将项目上传至github中。
+以下是本项目的启动教程。
+
 # supermall
 
 ## Project setup
