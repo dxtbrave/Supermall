@@ -1,11 +1,11 @@
 <template>
   <div class="goods-item" @click="itemClick">
-<!--    <img :src="showImage" alt="" @load="imageload">-->
+    <!--    <img :src="showImage" alt="" @load="imageload">-->
     <img v-lazy="showImage" alt="" @load="imageload">
     <div class="goods-info">
-      <p>{{goodsItem.title}}</p>
-      <span class="price">{{goodsItem.price}}</span>
-      <span class="collect">{{goodsItem.cfav}}</span>
+      <p>{{ goodsItem.title }}</p>
+      <span class="price">{{ goodsItem.price }}</span>
+      <span class="collect">{{ goodsItem.cfav }}</span>
       <span></span>
     </div>
   </div>
@@ -14,41 +14,48 @@
 <script>
 export default {
   name: "GoodsListItem",
-  props:{
-    goodsItem:{
-      type:Object,
-      default(){
+  props: {
+    goodsItem: {
+      type: Object,
+      default() {
         return {}
       }
     }
   },
-  computed:{
-    showImage(){
-      return this.goodsItem.image || this.goodsItem.show.img
+  computed: {
+    showImage() {
+      return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
     }
+    // showImage() {
+    //   return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
+    // }
   },
-  methods:{
-    imageload(){
-        this.$bus.$emit('itemImageLoad')
+  methods: {
+    imageload() {
+      this.$bus.$emit('itemImageLoad')
     },
-    itemClick(){
+    itemClick() {
       this.$router.push('/Detail/' + this.goodsItem.iid)
+      // const iid = this.goodsItem.iid
+      // this.$router.push({path:'/Detail',query:{iid}})
     }
   }
 }
 </script>
 
 <style scoped>
-.goods-item{
+.goods-item {
   position: relative;
   width: 46%;
   padding-bottom: 40px;
 }
-.goods-item img{
+
+.goods-item img {
   width: 100%;
   border-radius: 10px;
 }
-.goods-info{
+
+.goods-info {
   font-size: 12px;
   position: absolute;
   bottom: 5px;
@@ -57,19 +64,23 @@ export default {
   overflow: hidden;
   text-align: center;
 }
-.goods-info p{
+
+.goods-info p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 3px;
 }
-.goods-info .price{
+
+.goods-info .price {
   color: var(--color-high-text);
   margin-right: 20px;
 }
-.goods-info .collect{
+
+.goods-info .collect {
   position: relative;
 }
+
 .goods-info .collect::before {
   content: '';
   position: absolute;

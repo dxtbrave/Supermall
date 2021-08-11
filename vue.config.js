@@ -10,5 +10,13 @@ module.exports ={
                 'views':'@/views',
             }
         }
-    }
+    },
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title= '云天城'
+        return args
+      })
+  }
 }
