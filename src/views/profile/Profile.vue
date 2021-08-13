@@ -98,7 +98,8 @@ export default {
 <style scoped>
 .profile-bar{
   background-color: var(--color-tint);
-  color: #f2f5f8;
+  color: #fff;
+  font-size: 16px;
   font-weight: 700;
 }
 .content{
