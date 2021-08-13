@@ -168,7 +168,7 @@ export default {
       this.$refs.tabControl2.currentIndex = index;
     },
     backClick() {
-      this.$refs.scroll.scrollTo(0, 0, 1000);
+      this.$refs.scroll.scrollTo(0, 0, 500);
     },
     contentScroll(position) {
       // 1.判断BackTop是否显示
@@ -229,7 +229,7 @@ export default {
 .tab-control{
   position: relative;
   top: -1px;
-  z-index: 3;
+  z-index: 1;
   /*background-color: ;*/
 }
 </style>

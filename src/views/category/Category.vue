@@ -12,7 +12,7 @@
         <div>
           <tab-content-category :subcategories="showSubcategory"/>
           <tab-control :titles="['综合','新品','销量']"
-                       @itemClick="tabClick"/>
+                       @tabClick="tabClick"/>
           <goods-list :goods="showCategoryDetail" />
         </div>
       </scroll>
