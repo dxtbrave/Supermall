@@ -10,12 +10,18 @@ import toast from "components/common/toast"
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
 import FastClick from "fastclick"
+
+// 导入ElementUI插件
+import ElementUI from "element-ui"
+import("element-ui/lib/theme-chalk/index.css")
+
 //图片懒加载
 import VueLazyload from "vue-lazyload";
 
 Vue.prototype.$bus = new Vue();
 
 Vue.use(VueAwesomeSwiper)
+Vue.use(ElementUI)
 Vue.use(toast)
 Vue.use(VueLazyload,{
 
