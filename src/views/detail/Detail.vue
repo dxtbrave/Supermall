@@ -6,8 +6,9 @@
       <detail-base-info :goods="goods"/>
       <detail-shop-info :shop="shop"/>
       <detail-goods-info :detail-info="detailInfo" @imageLoad="imageLoad"/>
-      <detail-param-info ref="params" :paramInfo="paramInfo"/>
-      <detail-comment-info ref="comment" :commentInfo="commentInfo"/>
+<!--      <detail-param-info ref="param" :param-info="paramInfo"/>-->
+      <detail-param-info ref="param" :param-info="paramInfo"/>
+      <detail-comment-info ref="comment" :comment-info="commentInfo"/>
       <goods-list ref="recommend" :goods="recommends"/>
     </scroll>
     <back-top v-show="isShowBackTop" @click.native="backClick"/>
@@ -107,7 +108,7 @@ export default {
     // 防抖操作
     this.getThemeTop = debounce(()=>{
       this.themeTops.push(0)
-      this.themeTops.push(this.$refs.params.$el.offsetTop)
+      this.themeTops.push(this.$refs.param.$el.offsetTop)
       this.themeTops.push(this.$refs.comment.$el.offsetTop)
       this.themeTops.push(this.$refs.recommend.$el.offsetTop)
       this.themeTops.push(Number.MAX_VALUE)
@@ -122,14 +123,19 @@ export default {
   methods:{
     imageLoad(){
       this.$refs.scroll.refresh()
+      console.log(this.$refs.param.$el.offsetTop)
+      console.log(this.$refs.comment.$el.offsetTop)
+      console.log(this.$refs.recommend.$el.offsetTop)
       this.getThemeTop()
     },
     titleClick(index){
-      this.$refs.scroll.scrollTo(0,-this.themeTops[index],1000)
+      console.log(-this.themeTops[index])
+      this.$refs.scroll.scrollTo(0,-this.themeTops[index],500)
     },
     contentScroll(position){
       // 1.获取y值
       let positionY = - position.y
+      console.log(positionY)
       let length = this.themeTops.length
       // 2.positionY和主题中值进行对比
       for(let i = 0 ;i<length-1 ; i++){
@@ -173,7 +179,7 @@ export default {
 <style scoped>
 #detail{
   position: relative;
-  z-index: 10;
+  z-index: 5;
   background-color: #fff;
   height: 100vh;
 }

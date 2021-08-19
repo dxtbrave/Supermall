@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "DetailParaminfo",
+  name: "DetailParamInfo",
   props: {
     paramInfo: {
       type: Object,
@@ -41,7 +41,7 @@ export default {
 }
 
 .param-info table {
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
 }
 

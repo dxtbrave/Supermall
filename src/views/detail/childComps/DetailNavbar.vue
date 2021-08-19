@@ -1,5 +1,4 @@
 <template>
-  <div>
     <nav-bar>
       <div slot="left" class="back" @click="backClick">
         <img src="~assets/img/common/back.svg" alt="">
@@ -8,10 +7,11 @@
         <div v-for="(item,index) in titles"
              class="title-item"
              :class="{active:index === currentIndex}"
-        @click="titleClick(index)">{{item}}</div>
+        @click="titleClick(index)">
+          {{item}}
+        </div>
       </div>
     </nav-bar>
-  </div>
 </template>
 
 <script>
