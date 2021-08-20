@@ -77,9 +77,7 @@ export default {
 
     // 2.根据iid请求数据
     getDetail(this.iid).then(res => {
-      // console.log(res)
       const data = res.result
-      console.log(data)
       // 1.获取顶部的图片轮播数据
       this.topImages = res.result.itemInfo.topImages
 
@@ -123,19 +121,15 @@ export default {
   methods:{
     imageLoad(){
       this.$refs.scroll.refresh()
-      console.log(this.$refs.param.$el.offsetTop)
-      console.log(this.$refs.comment.$el.offsetTop)
-      console.log(this.$refs.recommend.$el.offsetTop)
       this.getThemeTop()
     },
     titleClick(index){
-      console.log(-this.themeTops[index])
       this.$refs.scroll.scrollTo(0,-this.themeTops[index],500)
     },
     contentScroll(position){
       // 1.获取y值
       let positionY = - position.y
-      console.log(positionY)
+
       let length = this.themeTops.length
       // 2.positionY和主题中值进行对比
       for(let i = 0 ;i<length-1 ; i++){
